@@ -1,0 +1,60 @@
+[package]
+name = "client"
+version = "0.1.0"
+authors = ["Mikhail <sadsnake@mixbytes.io>"]
+edition = "2018"
+
+[dependencies]
+hex = "*"
+log = "*"
+env_logger = "*"
+
+[dependencies.substrate-api-client]
+git = 'https://github.com/scs/substrate-api-client'
+rev = "822b0fd7fe4df5dabdb3c60c75d12d36cccba2f2"
+
+[dependencies.sp-core]
+git = "https://github.com/paritytech/substrate"
+rev = "00a400f82539e2f78e8ddbcd98aea512c87c5f3c"
+package = "sp-core"
+features = ["full_crypto"]
+
+[dependencies.keyring]
+git = "https://github.com/paritytech/substrate"
+rev = "00a400f82539e2f78e8ddbcd98aea512c87c5f3c"
+package = "sp-keyring"
+
+[dependencies.sp-runtime]
+git = "https://github.com/paritytech/substrate"
+rev = "00a400f82539e2f78e8ddbcd98aea512c87c5f3c"
+
+[dependencies.indices]
+git = "https://github.com/paritytech/substrate"
+rev = "00a400f82539e2f78e8ddbcd98aea512c87c5f3c"
+package = "pallet-indices"
+
+[dependencies.pallet-asset]
+git = "https://github.com/paritytech/substrate"
+rev = "00a400f82539e2f78e8ddbcd98aea512c87c5f3c"
+package = "pallet-generic-asset"
+
+[dependencies.node_primitives]
+git = "https://github.com/paritytech/substrate"
+rev = "00a400f82539e2f78e8ddbcd98aea512c87c5f3c"
+package = "node-primitives"
+
+[dependencies.codec]
+package = "parity-scale-codec"
+features = ["derive"]
+version = "1.0.0"
+
+[features]
+default = ["std"]
+std = [
+    "sp-core/std",
+    "codec/std",
+    "sp-runtime/std",
+    "hex/std",
+]
+# need to add this for the app_crypto macro
+full_crypto = []
